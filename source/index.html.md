@@ -24,7 +24,7 @@ Welcome to the Visionati API! You can use our API to analyze images and videos. 
 
 ```shell
 # You need to pass the correct header with each request.
-curl "<API_ENDPOINT"
+curl "<API_ENDPOINT>"
   -H "Authorization: Token <YOUR_API_KEY>"
 ```
 

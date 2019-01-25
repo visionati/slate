@@ -13,3 +13,4 @@ JSON response!
 Error Code | Meaning
 ---------- | -------
 500 | Internal Server Error -- We had a problem with our server. Try again later.
+
