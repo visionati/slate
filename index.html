@@ -225,16 +225,13 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
           <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#visionati" class="toc-h1 toc-link" data-title="Visionati">Visionati</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#analyze-an-image-video" class="toc-h2 toc-link" data-title="Analyze an Image/Video">Analyze an Image/Video</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#async-response" class="toc-h2 toc-link" data-title="Async Response">Async Response</a>
                   </li>
               </ul>
           </li>
@@ -244,152 +241,940 @@
       </ul>
         <ul class="toc-footer">
             <li><a href='https://api.visionati.com'>Sign Up for an API Key</a></li>
-            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='https://github.com/visionati/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
-
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
+<p>Welcome to the Visionati API! You can use our API to analyze images and videos. You can fetch a variety of data including tags, faces, brands, colors, and text. You can even scan YouTube and Vimeo videos!</p>
 <h1 id='authentication'>Authentication</h1>
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+<pre class="highlight shell tab-shell"><code><span class="c"># You need to pass the correct header with each request.</span>
+curl <span class="s2">"&lt;API_ENDPOINT"</span>
+  -H <span class="s2">"Authorization: Token &lt;YOUR_API_KEY&gt;"</span>
 </code></pre>
 <blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
+<p>Make sure to replace <code>&lt;YOUR_API_KEY&gt;</code> with your API key.</p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>Visionati uses API keys to allow access to the API. You can register an account at our <a href="https://api.visionati.com">API server</a>.</p>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p>Visionati expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
 
-<p><code>Authorization: meowmeowmeow</code></p>
+<p><code>Authorization: Token &lt;YOUR_API_KEY&gt;</code></p>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>&lt;YOUR_API_KEY&gt;</code> with your API key.
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+<h1 id='visionati'>Visionati</h1><h2 id='analyze-an-image-video'>Analyze an Image/Video</h2><pre class="highlight shell tab-shell"><code><span class="c"># Sample call to analyze an image.</span>
+curl <span class="s2">"https://api.visionati.com/api/fetch?url=https%3A%2F%2Fmedia.treehugger.com%2Fassets%2Fimages%2F2016%2F07%2Fgreen-forest-trees.jpg.860x0_q70_crop-scale.jpg"</span>
+  -H <span class="s2">"Authorization: Token &lt;YOUR_API_KEY&gt;"</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The command above returns the following JSON. The second response below is returned if you request multiple images/videos.</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c36131f5-a040-4992-9741-91f2d3852ac3"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"urls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"https://media.treehugger.com/assets/images/2016/07/green-forest-trees.jpg.860x0_q70_crop-scale.jpg"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"backends"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"tag_score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"capture_interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"credits"</span><span class="p">:</span><span class="w"> </span><span class="mi">858</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"credits_paid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"all"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://media.treehugger.com/assets/images/2016/07/green-forest-trees.jpg.860x0_q70_crop-scale.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Forest"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forest"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9892672</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"Green"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Green"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9679495</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"Natural environment"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Natural environment"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9783299</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"Natural landscape"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Natural landscape"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9851578</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"Nature"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nature"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.97681445</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"Nature reserve"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nature reserve"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9639079</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"Old-growth forest"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Old-growth forest"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9698044</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"Tree"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tree"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9944205</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"Tropical and subtropical coniferous forests"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tropical and subtropical coniferous forests"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.97010356</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"Woodland"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Woodland"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9837558</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"dawn"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dawn"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.96872115</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"daylight"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daylight"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.88768035</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"environment"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"environment"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9598845</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"fair weather"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fair weather"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.956573</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"fall"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fall"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.90823317</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"forest"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"forest"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8639950561523441</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"growth"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"growth"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.91593105</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"guidance"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"guidance"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9471642</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"landscape"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"landscape"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9808681</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"leaf"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"leaf"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.98558354</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"lush"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lush"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9471315</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"mist"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mist"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9281504</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"nature"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nature"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9820632</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"no person"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no person"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9591023</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"park"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"park"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9507468</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"scenic"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scenic"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9073466</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"southern beech"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"southern beech"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.879313430786133</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"sun"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sun"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.954275</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"sunbeam"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunbeam"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.966048</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"tree"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tree"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.97798496</span><span class="w">
+        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tree"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"trunk"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trunk"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8971928</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"wood"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wood"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.99636936</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"woody plant"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"woody plant"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8354441070556641</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"colors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"#090d02"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#090d02"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0025426464</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.066761464</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#203911"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#203911"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.021619858</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.08972627</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">57</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#306112"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#306112"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.052881327</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.09228582</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">97</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#4c871a"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#4c871a"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.08929054</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.08275862</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">76</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#538333"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#538333"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.045829047</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.056096695</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">83</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">131</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">51</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#6ab61c"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#6ab61c"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.052289702</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.02047636</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">106</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">182</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#6fab37"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#6fab37"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.08954284</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05872734</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">111</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">171</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">55</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#784835"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#784835"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.07421559</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.019836474</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">72</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">53</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#8bd334"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#8bd334"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.13494858</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.031567723</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">211</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">52</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#96d058"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#96d058"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.052115206</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.024600072</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">208</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">88</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"nsfw"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sfw"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9918149</span><span class="w">
+      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nsfw"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.008185141</span><span class="w">
+      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adult"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"likelihood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VERY_UNLIKELY"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"violence"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"likelihood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VERY_UNLIKELY"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spoof"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"likelihood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VERY_UNLIKELY"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"medical"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"likelihood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VERY_UNLIKELY"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"safe"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9983775329589839</span><span class="w">
+      </span><span class="p">}]</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
+<blockquote>
+<p>Response if you sent a batch request.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"267f99ce-c797-4855-807f-21b204edb7ed"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"urls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"https://i.imgur.com/XUXe335.jpg"</span><span class="p">,</span><span class="w"> </span><span class="s2">"https://media.treehugger.com/assets/images/2016/07/green-forest-trees.jpg.860x0_q70_crop-scale.jpg"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"backends"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"tag_score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"capture_interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"response_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.visionati.com/api/response/267f99ce-c797-4855-807f-21b204edb7ed"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This is the main endpoint of the API, and is used to analyze an image or video. If you pass it multiple images/videos to scan then it will provide a different response with a <code>response_uri</code> to poll for results.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
+<p><code>GET https://api.visionati.com/api/fetch</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Required</th>
 <th>Default</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>url</td>
+<td>true</td>
+<td>none</td>
+<td>URL to the image/video you wish to scan. Videos return an async response.</td>
 </tr>
 <tr>
-<td>available</td>
+<td>url[]</td>
 <td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>none</td>
+<td>URLs to the images/videos you wish to analyze. This param should be passed multiple times. Returns an async response.</td>
+</tr>
+<tr>
+<td>feature</td>
+<td>false</td>
+<td>all</td>
+<td>Select features you want to enable. By default all features are enabled. Valid values are: brands, colors, faces, nsfw, tags, texts.</td>
+</tr>
+<tr>
+<td>feature[]</td>
+<td>false</td>
+<td>all</td>
+<td>Allows you to pass multiple features at the same time. That way you can just scan tags and faces if you want.</td>
+</tr>
+<tr>
+<td>tag_score</td>
+<td>false</td>
+<td>0.8</td>
+<td>Minimum tag score for the results. Valid values are floats between 0 and 1.</td>
+</tr>
+<tr>
+<td>capture_interval</td>
+<td>false</td>
+<td>1</td>
+<td>By default videos process every frame. This allows you to set the capture interval. Valid values are integers greater than 0.</td>
 </tr>
 </tbody></table>
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+Remember - anytime you see a param that ends in [], you can use it multiple times!
 </aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+<h2 id='async-response'>Async Response</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.visionati.com/api/response/267f99ce-c797-4855-807f-21b204edb7ed"</span>
+  -H <span class="s2">"Authorization: Token &lt;YOUR_API_KEY&gt;"</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The command above returns the following JSON as it is processing. The second response below is returned if processing is complete.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="s2">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"267f99ce-c797-4855-807f-21b204edb7ed"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"urls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"https://i.imgur.com/XUXe335.jpg"</span><span class="p">,</span><span class="w"> </span><span class="s2">"https://media.treehugger.com/assets/images/2016/07/green-forest-trees.jpg.860x0_q70_crop-scale.jpg"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"backends"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"tag_score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"capture_interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"processing"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<blockquote>
+<p>Response when processing is complete.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"267f99ce-c797-4855-807f-21b204edb7ed"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"urls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"https://i.imgur.com/XUXe335.jpg"</span><span class="p">,</span><span class="w"> </span><span class="s2">"https://media.treehugger.com/assets/images/2016/07/green-forest-trees.jpg.860x0_q70_crop-scale.jpg"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"backends"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"tag_score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"capture_interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"credits"</span><span class="p">:</span><span class="w"> </span><span class="mi">856</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"credits_paid"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"all"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://i.imgur.com/XUXe335.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Historic site"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Historic site"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8550074</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"Sand"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sand"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.95072967</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"ancient"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ancient"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.96067786</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"antique"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"antique"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.95298517</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"archaeology"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"archaeology"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8163238</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"architecture"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"architecture"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.90563744</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"art"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"art"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8780494</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"beige color"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"beige color"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.983</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"desert"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"desert"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.83813953</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"measuring instrument"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"measuring instrument"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.841</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"nature"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nature"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.83924955</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"no person"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no person"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9846246</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"old"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"old"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.95872563</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"outdoors"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"outdoors"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9428955</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"retro"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"retro"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.91253495</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"sand"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sand"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8890777</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"sky"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sky"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.840596</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"stone"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stone"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8253684</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"sundial"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sundial"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.841</span><span class="w">
+        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sundial"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"timepiece"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"timepiece"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.841</span><span class="w">
+        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"timepiece"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8663619232177731</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"traditional"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"traditional"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.86968356</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"travel"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"travel"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.95432603</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"colors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"#512d16"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#512d16"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05418332</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.054410838</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">81</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#587b96"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#587b96"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.021196907</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.009814613</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">88</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#63a6f6"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#63a6f6"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.12261884</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.10709981</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">166</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">246</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#6ca5e3"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#6ca5e3"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.063343495</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.03403547</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">108</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">165</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">227</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#714b30"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#714b30"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.044825763</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.04895827</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">113</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">75</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#976c46"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#976c46"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.04776877</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.049589623</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">151</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">108</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#987253"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#987253"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.07415027</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.058313724</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">152</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">114</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">83</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#b29474"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#b29474"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.07692947</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05647707</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">178</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">148</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">116</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#b68f6e"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#b68f6e"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05362947</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.061527867</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">182</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">143</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">110</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#debe9a"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#debe9a"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.053562753</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.11892326</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">222</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">190</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">154</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"texts"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="s2">"bounding_poly"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"vertices"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">145</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="w">
+          </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">395</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="w">
+          </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">395</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="w">
+          </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">145</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="w">
+          </span><span class="p">}]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stargate sand sculpture...</span><span class="se">\n</span><span class="s2">"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"bounding_poly"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"vertices"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">145</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="w">
+          </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">233</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="w">
+          </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">233</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="w">
+          </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">145</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="w">
+          </span><span class="p">}]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stargate"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"bounding_poly"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"vertices"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">234</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="w">
+          </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">279</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="w">
+          </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">279</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="w">
+          </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">234</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="w">
+          </span><span class="p">}]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sand"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"bounding_poly"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"vertices"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">283</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="w">
+          </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">395</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="w">
+          </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">395</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="w">
+          </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">283</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="w">
+          </span><span class="p">}]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sculpture..."</span><span class="w">
+      </span><span class="p">}],</span><span class="w">
+      </span><span class="s2">"nsfw"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sfw"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9995708</span><span class="w">
+      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nsfw"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00042922708</span><span class="w">
+      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adult"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"likelihood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VERY_UNLIKELY"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"violence"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"likelihood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VERY_UNLIKELY"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spoof"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"likelihood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VERY_UNLIKELY"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"medical"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"likelihood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VERY_UNLIKELY"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"safe"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9854914093017579</span><span class="w">
+      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"underwear"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0130350482463837</span><span class="w">
+      </span><span class="p">}],</span><span class="w">
+      </span><span class="s2">"brands"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"eagleburgmann"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eagleburgmann"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8401</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://media.treehugger.com/assets/images/2016/07/green-forest-trees.jpg.860x0_q70_crop-scale.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Forest"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forest"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9892672</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"Green"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Green"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9679495</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"Natural environment"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Natural environment"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9783299</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"Natural landscape"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Natural landscape"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9851578</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"Nature"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nature"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.97681445</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"Nature reserve"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nature reserve"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9639079</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"Old-growth forest"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Old-growth forest"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9698044</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"Tree"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tree"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9944205</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"Tropical and subtropical coniferous forests"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tropical and subtropical coniferous forests"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.97010356</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"Woodland"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Woodland"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9837558</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"dawn"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dawn"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.96872115</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"daylight"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daylight"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.88768035</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"environment"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"environment"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9598845</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"fair weather"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fair weather"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.956573</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"fall"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fall"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.90823317</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"forest"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"forest"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8639950561523441</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"growth"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"growth"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.91593105</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"guidance"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"guidance"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9471642</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"landscape"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"landscape"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9808681</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"leaf"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"leaf"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.98558354</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"lush"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lush"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9471315</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"mist"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mist"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9281504</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"nature"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nature"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9820632</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"no person"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no person"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9591023</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"park"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"park"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9507468</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"scenic"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scenic"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9073466</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"southern beech"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"southern beech"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.879313430786133</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"sun"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sun"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.954275</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"sunbeam"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sunbeam"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.966048</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"tree"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tree"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.97798496</span><span class="w">
+        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tree"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"trunk"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trunk"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8971928</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"wood"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wood"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.99636936</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"woody plant"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"woody plant"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8354441070556641</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"colors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"#090d02"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#090d02"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0025426464</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.066761464</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#203911"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#203911"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.021619858</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.08972627</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">57</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#306112"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#306112"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.052881327</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.09228582</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">97</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#4c871a"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#4c871a"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.08929054</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.08275862</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">76</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#538333"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#538333"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.045829047</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.056096695</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">83</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">131</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">51</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#6ab61c"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#6ab61c"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.052289702</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.02047636</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">106</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">182</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#6fab37"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#6fab37"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.08954284</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05872734</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">111</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">171</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">55</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#784835"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#784835"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.07421559</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.019836474</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">72</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">53</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#8bd334"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#8bd334"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.13494858</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.031567723</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">139</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">211</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">52</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"#96d058"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="s2">"hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#96d058"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.052115206</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"pixel_fraction"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.024600072</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"red"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"green"</span><span class="p">:</span><span class="w"> </span><span class="mi">208</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"blue"</span><span class="p">:</span><span class="w"> </span><span class="mi">88</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"nsfw"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sfw"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9918149</span><span class="w">
+      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nsfw"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.008185141</span><span class="w">
+      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adult"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"likelihood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VERY_UNLIKELY"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"violence"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"likelihood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VERY_UNLIKELY"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spoof"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"likelihood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VERY_UNLIKELY"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"medical"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"likelihood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VERY_UNLIKELY"</span><span class="w">
+      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"safe"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9983775329589839</span><span class="w">
+      </span><span class="p">}]</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrives an async response from a video or batch request.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p><code>GET https://api.visionati.com/api/response/&lt;request_id&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
-</tr>
-</tbody></table>
+<p>This endpoint takes no parameters.</p>
 <h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+<blockquote>
+<p>Below is a sample error message.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"error"</span><span class="p">:</span><span class="s2">"Invalid URLs detected."</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The Visionati API uses the erro codes below. Many errors can be returned during
+normal API usage. Developers should always look at the <code>error</code> key on any returned
+JSON response!</p>
 
 <table><thead>
 <tr>
@@ -398,48 +1183,8 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
 <td>500</td>
 <td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
 </tr>
 </tbody></table>
 
