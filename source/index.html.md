@@ -18,6 +18,8 @@ search: true
 
 Welcome to the Visionati API! You can use our API to analyze images and videos. You can fetch a variety of data including tags, faces, brands, colors, and text. You can even scan YouTube and Vimeo videos!
 
+The API runs on credits. Each image or frame of video requires 1 credit. You can easily buy additional credits at our [API server](https://api.visionati.com).
+
 # Authentication
 
 > To authorize, use this code:
