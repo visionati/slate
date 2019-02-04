@@ -915,7 +915,7 @@ curl "https://api.visionati.com/api/response/267f99ce-c797-4855-807f-21b204edb7e
 }
 ```
 
-This endpoint retrives an async response from a video or batch request.
+This endpoint retrieves an async response from a video or batch request.
 
 ### HTTP Request
 
