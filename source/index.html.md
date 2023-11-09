@@ -16,7 +16,7 @@ search: true
 
 # Introduction
 
-Welcome to the Visionati API! You can use our API to analyze images and videos. You can fetch a variety of data including tags, faces, brands, colors, and text. You can even scan YouTube and Vimeo videos!
+Welcome to the Visionati API! You can use our API to analyze images and videos. You can fetch a variety of data including tags, descriptions, faces, brands, colors, and text. You can even scan YouTube and Vimeo videos!
 
 The API runs on credits. Each image or frame of video requires 1 credit. You can easily buy additional credits at our [API server](https://api.visionati.com).
 
@@ -342,7 +342,7 @@ Parameter | Required | Default | Description
 --------- | -------- | ------- | -----------
 url | true | none | URL to the image/video you wish to scan. Videos return an async response.
 url[] | true | none | URLs to the images/videos you wish to analyze. This param should be passed multiple times. Returns an async response.
-feature | false | all | Select features you want to enable. By default all features are enabled. Valid values are: brands, colors, faces, nsfw, tags, texts.
+feature | false | all | Select features you want to enable. By default all features are enabled. Valid values are: brands, colors, descriptions, faces, nsfw, tags, texts.
 feature[] | false | all | Allows you to pass multiple features at the same time. That way you can just scan tags and faces if you want.
 tag_score | false | 0.8 | Minimum tag score for the results. Valid values are floats between 0 and 1.
 capture_interval | false | 1 | By default videos process every frame. This allows you to set the capture interval. Valid values are integers greater than 0.
