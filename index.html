@@ -579,10 +579,22 @@ curl <span class="s2">"https://api.visionati.com/api/fetch?url=https%3A%2F%2Fmed
 <td>URLs to the images/videos you wish to analyze. This param should be passed multiple times. Returns an async response.</td>
 </tr>
 <tr>
+<td>backend</td>
+<td>false</td>
+<td>all</td>
+<td>Select the backend you want to enable. By default all backends are enabled. Valid values are: clarifai, imagga, google, rekognition, and openai.</td>
+</tr>
+<tr>
+<td>backend[]</td>
+<td>false</td>
+<td>all</td>
+<td>Allows you to pass multiple backends at the same time. That way you can just enable openai and google if you want.</td>
+</tr>
+<tr>
 <td>feature</td>
 <td>false</td>
 <td>all</td>
-<td>Select features you want to enable. By default all features are enabled. Valid values are: brands, colors, descriptions, faces, nsfw, tags, texts.</td>
+<td>Select features you want to enable. By default all features are enabled. Valid values are: brands, colors, descriptions, faces, nsfw, tags, and texts.</td>
 </tr>
 <tr>
 <td>feature[]</td>
