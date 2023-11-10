@@ -50,7 +50,7 @@ You must replace <code>&lt;YOUR_API_KEY&gt;</code> with your API key.
 
 ```shell
 # Sample call to analyze an image.
-curl "https://api.visionati.com/api/fetch?url=https%3A%2F%2Fmedia.treehugger.com%2Fassets%2Fimages%2F2016%2F07%2Fgreen-forest-trees.jpg.860x0_q70_crop-scale.jpg"
+curl "https://api.visionati.com/api/fetch?url=https%3A%2F%2Fthoughts.greyh.at%2Fposts%2Fbreathe%2Fimages%2Fcover.webp"
   -H "Authorization: Token <YOUR_API_KEY>"
 ```
 
@@ -58,260 +58,298 @@ curl "https://api.visionati.com/api/fetch?url=https%3A%2F%2Fmedia.treehugger.com
 
 ```json
 {
-  "request_id": "c36131f5-a040-4992-9741-91f2d3852ac3",
-  "user_id": 1,
-  "urls": ["https://media.treehugger.com/assets/images/2016/07/green-forest-trees.jpg.860x0_q70_crop-scale.jpg"],
-  "features": [],
-  "backends": [],
-  "tag_score": 0.8,
-  "capture_interval": 0,
-  "credits": 858,
-  "credits_paid": 1,
-  "all": {
-    "assets": [{
-      "name": "https://media.treehugger.com/assets/images/2016/07/green-forest-trees.jpg.860x0_q70_crop-scale.jpg",
-      "tags": {
-        "Forest": [{
-          "name": "Forest",
-          "score": 0.9892672
-        }],
-        "Green": [{
-          "name": "Green",
-          "score": 0.9679495
-        }],
-        "Natural environment": [{
-          "name": "Natural environment",
-          "score": 0.9783299
-        }],
-        "Natural landscape": [{
-          "name": "Natural landscape",
-          "score": 0.9851578
-        }],
-        "Nature": [{
-          "name": "Nature",
-          "score": 0.97681445
-        }],
-        "Nature reserve": [{
-          "name": "Nature reserve",
-          "score": 0.9639079
-        }],
-        "Old-growth forest": [{
-          "name": "Old-growth forest",
-          "score": 0.9698044
-        }],
-        "Tree": [{
-          "name": "Tree",
-          "score": 0.9944205
-        }],
-        "Tropical and subtropical coniferous forests": [{
-          "name": "Tropical and subtropical coniferous forests",
-          "score": 0.97010356
-        }],
-        "Woodland": [{
-          "name": "Woodland",
-          "score": 0.9837558
-        }],
-        "dawn": [{
-          "name": "dawn",
-          "score": 0.96872115
-        }],
-        "daylight": [{
-          "name": "daylight",
-          "score": 0.88768035
-        }],
-        "environment": [{
-          "name": "environment",
-          "score": 0.9598845
-        }],
-        "fair weather": [{
-          "name": "fair weather",
-          "score": 0.956573
-        }],
-        "fall": [{
-          "name": "fall",
-          "score": 0.90823317
-        }],
-        "forest": [{
-          "name": "forest",
-          "score": 0.8639950561523441
-        }],
-        "growth": [{
-          "name": "growth",
-          "score": 0.91593105
-        }],
-        "guidance": [{
-          "name": "guidance",
-          "score": 0.9471642
-        }],
-        "landscape": [{
-          "name": "landscape",
-          "score": 0.9808681
-        }],
-        "leaf": [{
-          "name": "leaf",
-          "score": 0.98558354
-        }],
-        "lush": [{
-          "name": "lush",
-          "score": 0.9471315
-        }],
-        "mist": [{
-          "name": "mist",
-          "score": 0.9281504
-        }],
-        "nature": [{
-          "name": "nature",
-          "score": 0.9820632
-        }],
-        "no person": [{
-          "name": "no person",
-          "score": 0.9591023
-        }],
-        "park": [{
-          "name": "park",
-          "score": 0.9507468
-        }],
-        "scenic": [{
-          "name": "scenic",
-          "score": 0.9073466
-        }],
-        "southern beech": [{
-          "name": "southern beech",
-          "score": 0.879313430786133
-        }],
-        "sun": [{
-          "name": "sun",
-          "score": 0.954275
-        }],
-        "sunbeam": [{
-          "name": "sunbeam",
-          "score": 0.966048
-        }],
-        "tree": [{
-          "name": "tree",
-          "score": 0.97798496
-        }, {
-          "name": "tree",
-          "score": 1
-        }],
-        "trunk": [{
-          "name": "trunk",
-          "score": 0.8971928
-        }],
-        "wood": [{
-          "name": "wood",
-          "score": 0.99636936
-        }],
-        "woody plant": [{
-          "name": "woody plant",
-          "score": 0.8354441070556641
-        }]
-      },
-      "colors": {
-        "#090d02": [{
-          "hex": "#090d02",
-          "score": 0.0025426464,
-          "pixel_fraction": 0.066761464,
-          "red": 9,
-          "green": 13,
-          "blue": 2
-        }],
-        "#203911": [{
-          "hex": "#203911",
-          "score": 0.021619858,
-          "pixel_fraction": 0.08972627,
-          "red": 32,
-          "green": 57,
-          "blue": 17
-        }],
-        "#306112": [{
-          "hex": "#306112",
-          "score": 0.052881327,
-          "pixel_fraction": 0.09228582,
-          "red": 48,
-          "green": 97,
-          "blue": 18
-        }],
-        "#4c871a": [{
-          "hex": "#4c871a",
-          "score": 0.08929054,
-          "pixel_fraction": 0.08275862,
-          "red": 76,
-          "green": 135,
-          "blue": 26
-        }],
-        "#538333": [{
-          "hex": "#538333",
-          "score": 0.045829047,
-          "pixel_fraction": 0.056096695,
-          "red": 83,
-          "green": 131,
-          "blue": 51
-        }],
-        "#6ab61c": [{
-          "hex": "#6ab61c",
-          "score": 0.052289702,
-          "pixel_fraction": 0.02047636,
-          "red": 106,
-          "green": 182,
-          "blue": 28
-        }],
-        "#6fab37": [{
-          "hex": "#6fab37",
-          "score": 0.08954284,
-          "pixel_fraction": 0.05872734,
-          "red": 111,
-          "green": 171,
-          "blue": 55
-        }],
-        "#784835": [{
-          "hex": "#784835",
-          "score": 0.07421559,
-          "pixel_fraction": 0.019836474,
-          "red": 120,
-          "green": 72,
-          "blue": 53
-        }],
-        "#8bd334": [{
-          "hex": "#8bd334",
-          "score": 0.13494858,
-          "pixel_fraction": 0.031567723,
-          "red": 139,
-          "green": 211,
-          "blue": 52
-        }],
-        "#96d058": [{
-          "hex": "#96d058",
-          "score": 0.052115206,
-          "pixel_fraction": 0.024600072,
-          "red": 150,
-          "green": 208,
-          "blue": 88
-        }]
-      },
-      "nsfw": [{
-        "label": "sfw",
-        "score": 0.9918149
-      }, {
-        "label": "nsfw",
-        "score": 0.008185141
-      }, {
-        "label": "adult",
-        "likelihood": "VERY_UNLIKELY"
-      }, {
-        "label": "violence",
-        "likelihood": "VERY_UNLIKELY"
-      }, {
-        "label": "spoof",
-        "likelihood": "VERY_UNLIKELY"
-      }, {
-        "label": "medical",
-        "likelihood": "VERY_UNLIKELY"
-      }, {
-        "label": "safe",
-        "score": 0.9983775329589839
-      }]
-    }]
+  "request_id":"5ec7ecc6-8a61-417b-b7bb-1aa00b9ed7a7",
+  "user_id":1,
+  "urls":[
+    "https://thoughts.greyh.at/posts/breathe/images/cover.webp"
+  ],
+  "features":[],
+  "backends":[],
+  "tag_score":0.85,
+  "capture_interval":0,
+  "credits_paid":3,
+  "credits":1209,
+  "all":{
+    "assets":[
+      {
+        "name":"https://thoughts.greyh.at/posts/breathe/images/cover.webp",
+        "tags":{
+          "Buddha":[
+            {
+              "name":"Buddha",
+              "score":0.9547365
+            }
+          ],
+          "ancient":[
+            {
+              "name":"ancient",
+              "score":0.907019
+            }
+          ],
+          "architecture":[
+            {
+              "name":"architecture",
+              "score":0.9429848
+            }
+          ],
+          "art":[
+            {
+              "name":"art",
+              "score":0.97909284
+            }
+          ],
+          "building":[
+            {
+              "name":"building",
+              "score":0.8676134
+            }
+          ],
+          "church":[
+            {
+              "name":"church",
+              "score":0.97136486
+            }
+          ],
+          "culture":[
+            {
+              "name":"culture",
+              "score":0.9410028
+            }
+          ],
+          "decoration":[
+            {
+              "name":"decoration",
+              "score":0.89900476
+            }
+          ],
+          "god":[
+            {
+              "name":"god",
+              "score":0.90626276
+            }
+          ],
+          "gold":[
+            {
+              "name":"gold",
+              "score":0.9167078
+            }
+          ],
+          "no person":[
+            {
+              "name":"no person",
+              "score":0.9178982
+            }
+          ],
+          "old":[
+            {
+              "name":"old",
+              "score":0.9413237
+            }
+          ],
+          "plant":[
+            {
+              "name":"plant",
+              "score":0.90841097
+            }
+          ],
+          "religion":[
+            {
+              "name":"religion",
+              "score":0.9888678
+            }
+          ],
+          "religious":[
+            {
+              "name":"religious",
+              "score":0.8962641
+            }
+          ],
+          "sculpture":[
+            {
+              "name":"sculpture",
+              "score":0.9821177
+            }
+          ],
+          "spirituality":[
+            {
+              "name":"spirituality",
+              "score":0.906218
+            }
+          ],
+          "statue":[
+            {
+              "name":"statue",
+              "score":0.9778216
+            }
+          ],
+          "symbol":[
+            {
+              "name":"symbol",
+              "score":0.89317465
+            }
+          ],
+          "temple":[
+            {
+              "name":"temple",
+              "score":0.8810329
+            },
+            {
+              "name":"temple",
+              "score":0.97307837
+            }
+          ],
+          "traditional":[
+            {
+              "name":"traditional",
+              "score":0.8843783
+            }
+          ],
+          "travel":[
+            {
+              "name":"travel",
+              "score":0.96362764
+            }
+          ]
+        },
+        "colors":{
+          "#363333":[
+            {
+              "hex":"#363333",
+              "score":0.014964638,
+              "pixel_fraction":0.21169269,
+              "red":54,
+              "green":51,
+              "blue":51
+            }
+          ],
+          "#54504e":[
+            {
+              "hex":"#54504e",
+              "score":0.007167647,
+              "pixel_fraction":0.18531026,
+              "red":84,
+              "green":80,
+              "blue":78
+            }
+          ],
+          "#695541":[
+            {
+              "hex":"#695541",
+              "score":0.0076295147,
+              "pixel_fraction":0.028493036,
+              "red":105,
+              "green":85,
+              "blue":65
+            }
+          ],
+          "#79533d":[
+            {
+              "hex":"#79533d",
+              "score":0.041782755,
+              "pixel_fraction":0.017095821,
+              "red":121,
+              "green":83,
+              "blue":61
+            }
+          ],
+          "#90775f":[
+            {
+              "hex":"#90775f",
+              "score":0.045921545,
+              "pixel_fraction":0.044674266,
+              "red":144,
+              "green":119,
+              "blue":95
+            }
+          ],
+          "#9c735a":[
+            {
+              "hex":"#9c735a",
+              "score":0.42039907,
+              "pixel_fraction":0.0764739,
+              "red":156,
+              "green":115,
+              "blue":90
+            }
+          ],
+          "#a4734f":[
+            {
+              "hex":"#a4734f",
+              "score":0.049462765,
+              "pixel_fraction":0.006894611,
+              "red":164,
+              "green":115,
+              "blue":79
+            }
+          ],
+          "#b09377":[
+            {
+              "hex":"#b09377",
+              "score":0.04548987,
+              "pixel_fraction":0.017095821,
+              "red":176,
+              "green":147,
+              "blue":119
+            }
+          ],
+          "#b58b70":[
+            {
+              "hex":"#b58b70",
+              "score":0.2676177,
+              "pixel_fraction":0.04052343,
+              "red":181,
+              "green":139,
+              "blue":112
+            }
+          ],
+          "#b8875e":[
+            {
+              "hex":"#b8875e",
+              "score":0.056730855,
+              "pixel_fraction":0.0052061346,
+              "red":184,
+              "green":135,
+              "blue":94
+            }
+          ]
+        },
+        "nsfw":[
+          {
+            "label":"adult",
+            "likelihood":"UNLIKELY"
+          },
+          {
+            "label":"violence",
+            "likelihood":"UNLIKELY"
+          },
+          {
+            "label":"spoof",
+            "likelihood":"VERY_UNLIKELY"
+          },
+          {
+            "label":"medical",
+            "likelihood":"UNLIKELY"
+          },
+          {
+            "label":"sfw",
+            "score":0.98024684
+          },
+          {
+            "label":"nsfw",
+            "score":0.019753128
+          }
+        ],
+        "descriptions":[
+          {
+            "description":"This image captures a serene representation of a Buddha statue seated in the lotus position, cradled within an intricately carved wooden mandorla. The mandorla with its flame-like patterning radiates out from the statue, symbolizing spiritual radiance and enlightenment. The Buddha is depicted with a gentle smile and eyes lowered in meditative introspection. Above, a complex, dark wooden ceiling structure lends an imposing architectural dimension, contributing to the sense of tranquility and sanctity in this space. Foreground floral offerings add vibrant color, suggesting ongoing veneration and cultural significance. The photo conveys a combination of artistry, spirituality, and the calm ambiance of a sacred place."
+          }
+        ]
+      }
+    ],
+    "errors":[
+      "failed to decode image: image: unknown format",
+      "Unexpected error while running the classification job."
+    ]
   }
 }
 ```
