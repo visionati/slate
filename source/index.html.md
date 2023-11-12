@@ -65,6 +65,7 @@ curl "https://api.visionati.com/api/fetch?url=https%3A%2F%2Fthoughts.greyh.at%2F
   ],
   "features":[],
   "backends":[],
+  "role": "default",
   "tag_score":0.85,
   "capture_interval":0,
   "credits_paid":3,
@@ -438,6 +439,7 @@ curl "https://api.visionati.com/api/fetch?url=https%3A%2F%2Fthoughts.greyh.at%2F
   "urls": ["https://i.imgur.com/XUXe335.jpg", "https://media.treehugger.com/assets/images/2016/07/green-forest-trees.jpg.860x0_q70_crop-scale.jpg"],
   "features": [],
   "backends": [],
+  "role": "default",
   "tag_score": 0.8,
   "capture_interval": 0,
   "success": true,
@@ -461,6 +463,7 @@ backend | false | all | Select the backend you want to enable. By default all ba
 backend[] | false | all | Allows you to pass multiple backends at the same time. That way you can just enable openai and google if you want.
 feature | false | all | Select features you want to enable. By default all features are enabled. Valid values are: brands, colors, descriptions, faces, nsfw, tags, and texts.
 feature[] | false | all | Allows you to pass multiple features at the same time. That way you can just scan tags and faces if you want.
+role | false | default | Pick the role, or persona for your description. This allows for more customized descriptions! Valid values are: default, ecommerce, promoter, and realtor.
 tag_score | false | 0.8 | Minimum tag score for the results. Valid values are floats between 0 and 1.
 capture_interval | false | 1 | By default videos process every frame. This allows you to set the capture interval. Valid values are integers greater than 0.
 
@@ -484,6 +487,7 @@ curl "https://api.visionati.com/api/response/267f99ce-c797-4855-807f-21b204edb7e
   "urls": ["https://i.imgur.com/XUXe335.jpg", "https://media.treehugger.com/assets/images/2016/07/green-forest-trees.jpg.860x0_q70_crop-scale.jpg"],
   "features": [],
   "backends": [],
+  "role": "default",
   "tag_score": 0.8,
   "capture_interval": 0,
   "status": "processing"
@@ -499,6 +503,7 @@ curl "https://api.visionati.com/api/response/267f99ce-c797-4855-807f-21b204edb7e
   "urls": ["https://i.imgur.com/XUXe335.jpg", "https://media.treehugger.com/assets/images/2016/07/green-forest-trees.jpg.860x0_q70_crop-scale.jpg"],
   "features": [],
   "backends": [],
+  "role": "default",
   "tag_score": 0.8,
   "capture_interval": 0,
   "credits": 856,
