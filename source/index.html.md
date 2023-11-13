@@ -477,11 +477,14 @@ capture_interval | false | 1 | By default videos process every frame. This allow
 
 You can also POST to the `/api/fetch` endpoint with JSON. Here is a sample payload:
 
-```
+```json
 {
-  feature: ['nsfw', 'tags', 'descriptions'],
-  role: 'default',
-  url: ['https://example.com/info.png','https://example.com/pasture.png' ]
+  "feature": ["nsfw", "tags", "descriptions"],
+  "role": "default",
+  "url": [
+    "https://example.com/info.png",
+    "https://example.com/second.png"
+  ]
 }
 ```
 
