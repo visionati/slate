@@ -486,7 +486,7 @@ You can also POST to the `/api/fetch` endpoint with JSON. Here is a sample paylo
   ]
 }`
 
-When dealing with files, you might find it easier to use the POST endpoint.
+When dealing with files, we recommend using POST requests.
 
 <aside class="success">
 Remember - anytime you see a param that ends in [], you can use it multiple times!
