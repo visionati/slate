@@ -766,12 +766,15 @@ curl <span class="s2">"https://api.visionati.com/api/fetch?url=https%3A%2F%2Ftho
 </tbody></table>
 
 <p>You can also POST to the <code>/api/fetch</code> endpoint with JSON. Here is a sample payload:</p>
-<pre class="highlight plaintext"><code>{
-  feature: ['nsfw', 'tags', 'descriptions'],
-  role: 'default',
-  url: ['https://example.com/info.png','https://example.com/pasture.png' ]
-}
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"feature"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"nsfw"</span><span class="p">,</span><span class="w"> </span><span class="s2">"tags"</span><span class="p">,</span><span class="w"> </span><span class="s2">"descriptions"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"https://example.com/info.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"https://example.com/second.png"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>When dealing with files, you might find it easier to use the POST endpoint.</p>
 
 <aside class="success">
