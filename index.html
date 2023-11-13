@@ -287,6 +287,8 @@ curl <span class="s2">"https://api.visionati.com/api/fetch?url=https%3A%2F%2Ftho
   </span><span class="s2">"urls"</span><span class="p">:[</span><span class="w">
     </span><span class="s2">"https://thoughts.greyh.at/posts/breathe/images/cover.webp"</span><span class="w">
   </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"files"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"file_names"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="s2">"features"</span><span class="p">:[],</span><span class="w">
   </span><span class="s2">"backends"</span><span class="p">:[],</span><span class="w">
   </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
@@ -660,6 +662,8 @@ curl <span class="s2">"https://api.visionati.com/api/fetch?url=https%3A%2F%2Ftho
   </span><span class="s2">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"267f99ce-c797-4855-807f-21b204edb7ed"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="s2">"urls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"https://i.imgur.com/XUXe335.jpg"</span><span class="p">,</span><span class="w"> </span><span class="s2">"https://media.treehugger.com/assets/images/2016/07/green-forest-trees.jpg.860x0_q70_crop-scale.jpg"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"files"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"file_names"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="s2">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="s2">"backends"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
@@ -683,15 +687,39 @@ curl <span class="s2">"https://api.visionati.com/api/fetch?url=https%3A%2F%2Ftho
 </thead><tbody>
 <tr>
 <td>url</td>
-<td>true</td>
+<td>false</td>
 <td>none</td>
 <td>URL to the image/video you wish to scan. Videos return an async response.</td>
 </tr>
 <tr>
 <td>url[]</td>
-<td>true</td>
+<td>false</td>
 <td>none</td>
 <td>URLs to the images/videos you wish to analyze. This param should be passed multiple times. Returns an async response.</td>
+</tr>
+<tr>
+<td>file</td>
+<td>false</td>
+<td>none</td>
+<td>Base64 value of the image/video file contents. Returns an async response.</td>
+</tr>
+<tr>
+<td>file[]</td>
+<td>false</td>
+<td>none</td>
+<td>Base64 value for each image/video file. This param should be passed multiple times. Returns an async response.</td>
+</tr>
+<tr>
+<td>file_name</td>
+<td>false</td>
+<td>none</td>
+<td>Uploaded file name.</td>
+</tr>
+<tr>
+<td>file_name[]</td>
+<td>false</td>
+<td>none</td>
+<td>Uploaded file names. This param should be passed multiple times.</td>
 </tr>
 <tr>
 <td>backend</td>
@@ -737,6 +765,15 @@ curl <span class="s2">"https://api.visionati.com/api/fetch?url=https%3A%2F%2Ftho
 </tr>
 </tbody></table>
 
+<p>You can also POST to the <code>/api/fetch</code> endpoint with JSON. Here is a sample payload:</p>
+<pre class="highlight plaintext"><code>{
+  feature: ['nsfw', 'tags', 'descriptions'],
+  role: 'default',
+  url: ['https://example.com/info.png','https://example.com/pasture.png' ]
+}
+</code></pre>
+<p>When dealing with files, you might find it easier to use the POST endpoint.</p>
+
 <aside class="success">
 Remember - anytime you see a param that ends in [], you can use it multiple times!
 </aside>
@@ -750,6 +787,8 @@ Remember - anytime you see a param that ends in [], you can use it multiple time
   </span><span class="s2">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"267f99ce-c797-4855-807f-21b204edb7ed"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="s2">"urls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"https://i.imgur.com/XUXe335.jpg"</span><span class="p">,</span><span class="w"> </span><span class="s2">"https://media.treehugger.com/assets/images/2016/07/green-forest-trees.jpg.860x0_q70_crop-scale.jpg"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"files"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"file_names"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="s2">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="s2">"backends"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
@@ -765,6 +804,8 @@ Remember - anytime you see a param that ends in [], you can use it multiple time
   </span><span class="s2">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"267f99ce-c797-4855-807f-21b204edb7ed"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="s2">"urls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"https://i.imgur.com/XUXe335.jpg"</span><span class="p">,</span><span class="w"> </span><span class="s2">"https://media.treehugger.com/assets/images/2016/07/green-forest-trees.jpg.860x0_q70_crop-scale.jpg"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"files"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"file_names"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="s2">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="s2">"backends"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
