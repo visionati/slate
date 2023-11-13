@@ -63,6 +63,8 @@ curl "https://api.visionati.com/api/fetch?url=https%3A%2F%2Fthoughts.greyh.at%2F
   "urls":[
     "https://thoughts.greyh.at/posts/breathe/images/cover.webp"
   ],
+  "files": 0,
+  "file_names": [],
   "features":[],
   "backends":[],
   "role": "default",
@@ -437,6 +439,8 @@ curl "https://api.visionati.com/api/fetch?url=https%3A%2F%2Fthoughts.greyh.at%2F
   "request_id": "267f99ce-c797-4855-807f-21b204edb7ed",
   "user_id": 1,
   "urls": ["https://i.imgur.com/XUXe335.jpg", "https://media.treehugger.com/assets/images/2016/07/green-forest-trees.jpg.860x0_q70_crop-scale.jpg"],
+  "files": 0,
+  "file_names": [],
   "features": [],
   "backends": [],
   "role": "default",
@@ -457,8 +461,12 @@ This is the main endpoint of the API, and is used to analyze an image or video. 
 
 Parameter | Required | Default | Description
 --------- | -------- | ------- | -----------
-url | true | none | URL to the image/video you wish to scan. Videos return an async response.
-url[] | true | none | URLs to the images/videos you wish to analyze. This param should be passed multiple times. Returns an async response.
+url | false | none | URL to the image/video you wish to scan. Videos return an async response.
+url[] | false | none | URLs to the images/videos you wish to analyze. This param should be passed multiple times. Returns an async response.
+file | false | none | Base64 value of the image/video file contents. Returns an async response.
+file[] | false | none | Base64 value for each image/video file. This param should be passed multiple times. Returns an async response.
+file_name | false | none | Uploaded file name.
+file_name[] | false | none | Uploaded file names. This param should be passed multiple times.
 backend | false | all | Select the backend you want to enable. By default all backends are enabled. Valid values are: clarifai, imagga, google, rekognition, and openai.
 backend[] | false | all | Allows you to pass multiple backends at the same time. That way you can just enable openai and google if you want.
 feature | false | all | Select features you want to enable. By default all features are enabled. Valid values are: brands, colors, descriptions, faces, nsfw, tags, and texts.
@@ -466,6 +474,18 @@ feature[] | false | all | Allows you to pass multiple features at the same time.
 role | false | default | Pick the role, or persona for your description. This allows for more customized descriptions! Valid values are: default, ecommerce, promoter, and realtor.
 tag_score | false | 0.9 | Minimum tag score for the results. Valid values are floats between 0 and 1.
 capture_interval | false | 1 | By default videos process every frame. This allows you to set the capture interval. Valid values are integers greater than 0.
+
+You can also POST to the `/api/fetch` endpoint with JSON. Here is a sample payload:
+
+```
+{
+  feature: ['nsfw', 'tags', 'descriptions'],
+  role: 'default',
+  url: ['https://example.com/info.png','https://example.com/pasture.png' ]
+}
+```
+
+When dealing with files, you might find it easier to use the POST endpoint.
 
 <aside class="success">
 Remember - anytime you see a param that ends in [], you can use it multiple times!
@@ -485,6 +505,8 @@ curl "https://api.visionati.com/api/response/267f99ce-c797-4855-807f-21b204edb7e
   "request_id": "267f99ce-c797-4855-807f-21b204edb7ed",
   "user_id": 1,
   "urls": ["https://i.imgur.com/XUXe335.jpg", "https://media.treehugger.com/assets/images/2016/07/green-forest-trees.jpg.860x0_q70_crop-scale.jpg"],
+  "files": 0,
+  "file_names": [],
   "features": [],
   "backends": [],
   "role": "default",
@@ -501,6 +523,8 @@ curl "https://api.visionati.com/api/response/267f99ce-c797-4855-807f-21b204edb7e
   "request_id": "267f99ce-c797-4855-807f-21b204edb7ed",
   "user_id": 1,
   "urls": ["https://i.imgur.com/XUXe335.jpg", "https://media.treehugger.com/assets/images/2016/07/green-forest-trees.jpg.860x0_q70_crop-scale.jpg"],
+  "files": 0,
+  "file_names": [],
   "features": [],
   "backends": [],
   "role": "default",
