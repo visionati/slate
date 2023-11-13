@@ -455,7 +455,7 @@ This is the main endpoint of the API, and is used to analyze an image or video. 
 
 ### HTTP Request
 
-`GET https://api.visionati.com/api/fetch`
+`GET/POST https://api.visionati.com/api/fetch`
 
 ### Query Parameters
 
