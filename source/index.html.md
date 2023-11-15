@@ -65,13 +65,14 @@ curl "https://api.visionati.com/api/fetch?url=https%3A%2F%2Fthoughts.greyh.at%2F
   ],
   "files": 0,
   "file_names": [],
-  "features":[],
-  "backends":[],
+  "features": [],
+  "backends": [],
   "role": "default",
-  "tag_score":0.85,
-  "capture_interval":0,
-  "credits_paid":3,
-  "credits":1209,
+  "tag_score": 0.85,
+  "capture_interval": 0,
+  "max_frames": 3,
+  "credits_paid": 3,
+  "credits": 1209,
     "all": {
     "assets": [
       {
@@ -446,6 +447,7 @@ curl "https://api.visionati.com/api/fetch?url=https%3A%2F%2Fthoughts.greyh.at%2F
   "role": "default",
   "tag_score": 0.8,
   "capture_interval": 0,
+  "max_frames": 3,
   "success": true,
   "response_uri": "https://api.visionati.com/api/response/267f99ce-c797-4855-807f-21b204edb7ed"
 }
@@ -474,6 +476,7 @@ feature[] | false | all | Allows you to pass multiple features at the same time.
 role | false | default | Pick the role, or persona for your description. This allows for more customized descriptions! Valid values are: default, ecommerce, promoter, and realtor.
 tag_score | false | 0.9 | Minimum tag score for the results. Valid values are floats between 0 and 1.
 capture_interval | false | 1 | By default videos process every frame. This allows you to set the capture interval. Valid values are integers greater than 0.
+max_frames | false | 3 | By default videos process every frame. This allows you to set the max number of frames to process. To remove the limit, set this value to 0.
 
 You can also POST to the `/api/fetch` endpoint with JSON. Here is a sample payload:
 
@@ -513,6 +516,7 @@ curl "https://api.visionati.com/api/response/267f99ce-c797-4855-807f-21b204edb7e
   "role": "default",
   "tag_score": 0.8,
   "capture_interval": 0,
+  "max_frames": 3,
   "status": "processing"
 }
 ```
@@ -531,6 +535,7 @@ curl "https://api.visionati.com/api/response/267f99ce-c797-4855-807f-21b204edb7e
   "role": "default",
   "tag_score": 0.8,
   "capture_interval": 0,
+  "max_frames": 3,
   "credits": 856,
   "credits_paid": 2,
   "all": {
