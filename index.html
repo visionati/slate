@@ -289,13 +289,14 @@ curl <span class="s2">"https://api.visionati.com/api/fetch?url=https%3A%2F%2Ftho
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"files"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"file_names"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"features"</span><span class="p">:[],</span><span class="w">
-  </span><span class="s2">"backends"</span><span class="p">:[],</span><span class="w">
+  </span><span class="s2">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"backends"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"tag_score"</span><span class="p">:</span><span class="mf">0.85</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"capture_interval"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"credits_paid"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"credits"</span><span class="p">:</span><span class="mi">1209</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"tag_score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.85</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"capture_interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"max_frames"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"credits_paid"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"credits"</span><span class="p">:</span><span class="w"> </span><span class="mi">1209</span><span class="p">,</span><span class="w">
     </span><span class="s2">"all"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
@@ -669,6 +670,7 @@ curl <span class="s2">"https://api.visionati.com/api/fetch?url=https%3A%2F%2Ftho
   </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"tag_score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w">
   </span><span class="s2">"capture_interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"max_frames"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"response_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.visionati.com/api/response/267f99ce-c797-4855-807f-21b204edb7ed"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -763,6 +765,12 @@ curl <span class="s2">"https://api.visionati.com/api/fetch?url=https%3A%2F%2Ftho
 <td>1</td>
 <td>By default videos process every frame. This allows you to set the capture interval. Valid values are integers greater than 0.</td>
 </tr>
+<tr>
+<td>max_frames</td>
+<td>false</td>
+<td>3</td>
+<td>By default videos process every frame. This allows you to set the max number of frames to process. To remove the limit, set this value to 0.</td>
+</tr>
 </tbody></table>
 
 <p>You can also POST to the <code>/api/fetch</code> endpoint with JSON. Here is a sample payload:</p>
@@ -798,6 +806,7 @@ Remember - anytime you see a param that ends in [], you can use it multiple time
   </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"tag_score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w">
   </span><span class="s2">"capture_interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"max_frames"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"processing"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -815,6 +824,7 @@ Remember - anytime you see a param that ends in [], you can use it multiple time
   </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"tag_score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w">
   </span><span class="s2">"capture_interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"max_frames"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
   </span><span class="s2">"credits"</span><span class="p">:</span><span class="w"> </span><span class="mi">856</span><span class="p">,</span><span class="w">
   </span><span class="s2">"credits_paid"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
   </span><span class="s2">"all"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
