@@ -420,7 +420,8 @@ curl "https://api.visionati.com/api/fetch?url=https%3A%2F%2Fthoughts.greyh.at%2F
         ],
         "descriptions":[
           {
-            "description":"This image captures a serene representation of a Buddha statue seated in the lotus position, cradled within an intricately carved wooden mandorla. The mandorla with its flame-like patterning radiates out from the statue, symbolizing spiritual radiance and enlightenment. The Buddha is depicted with a gentle smile and eyes lowered in meditative introspection. Above, a complex, dark wooden ceiling structure lends an imposing architectural dimension, contributing to the sense of tranquility and sanctity in this space. Foreground floral offerings add vibrant color, suggesting ongoing veneration and cultural significance. The photo conveys a combination of artistry, spirituality, and the calm ambiance of a sacred place."
+            "description":"This image captures a serene representation of a Buddha statue seated in the lotus position, cradled within an intricately carved wooden mandorla. The mandorla with its flame-like patterning radiates out from the statue, symbolizing spiritual radiance and enlightenment. The Buddha is depicted with a gentle smile and eyes lowered in meditative introspection. Above, a complex, dark wooden ceiling structure lends an imposing architectural dimension, contributing to the sense of tranquility and sanctity in this space. Foreground floral offerings add vibrant color, suggesting ongoing veneration and cultural significance. The photo conveys a combination of artistry, spirituality, and the calm ambiance of a sacred place.",
+            "source": "openai"
           }
         ]
       }
