@@ -291,7 +291,7 @@ curl <span class="s2">"https://api.visionati.com/api/fetch?url=https%3A%2F%2Ftho
   </span><span class="s2">"file_names"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="s2">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="s2">"backends"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"general"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"tag_score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.85</span><span class="p">,</span><span class="w">
   </span><span class="s2">"capture_interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"max_frames"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
@@ -668,7 +668,7 @@ curl <span class="s2">"https://api.visionati.com/api/fetch?url=https%3A%2F%2Ftho
   </span><span class="s2">"file_names"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="s2">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="s2">"backends"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"general"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"tag_score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w">
   </span><span class="s2">"capture_interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"max_frames"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
@@ -751,8 +751,8 @@ curl <span class="s2">"https://api.visionati.com/api/fetch?url=https%3A%2F%2Ftho
 <tr>
 <td>role</td>
 <td>false</td>
-<td>default</td>
-<td>Pick the role, or persona for your description. This allows for more customized descriptions! Valid values are: artist, critic, default, ecommerce, inspector, promoter, realtor, and tweet.</td>
+<td>general</td>
+<td>Pick the role, or persona for your description. This allows for more customized descriptions! Valid values are: artist, critic, general, ecommerce, inspector, promoter, realtor, and tweet.</td>
 </tr>
 <tr>
 <td>tag_score</td>
@@ -778,7 +778,7 @@ curl <span class="s2">"https://api.visionati.com/api/fetch?url=https%3A%2F%2Ftho
 
 <p><code>{
   &quot;feature&quot;: [&quot;nsfw&quot;, &quot;tags&quot;, &quot;descriptions&quot;],
-  &quot;role&quot;: &quot;default&quot;,
+  &quot;role&quot;: &quot;general&quot;,
   &quot;url&quot;: [
     &quot;https://example.com/info.png&quot;,
     &quot;https://example.com/second.png&quot;
@@ -804,7 +804,7 @@ Remember - anytime you see a param that ends in [], you can use it multiple time
   </span><span class="s2">"file_names"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="s2">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="s2">"backends"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"general"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"tag_score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w">
   </span><span class="s2">"capture_interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"max_frames"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
@@ -822,7 +822,7 @@ Remember - anytime you see a param that ends in [], you can use it multiple time
   </span><span class="s2">"file_names"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="s2">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="s2">"backends"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"general"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"tag_score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w">
   </span><span class="s2">"capture_interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"max_frames"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
