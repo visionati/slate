@@ -67,7 +67,7 @@ curl "https://api.visionati.com/api/fetch?url=https%3A%2F%2Fthoughts.greyh.at%2F
   "file_names": [],
   "features": [],
   "backends": [],
-  "role": "default",
+  "role": "general",
   "tag_score": 0.85,
   "capture_interval": 0,
   "max_frames": 3,
@@ -445,7 +445,7 @@ curl "https://api.visionati.com/api/fetch?url=https%3A%2F%2Fthoughts.greyh.at%2F
   "file_names": [],
   "features": [],
   "backends": [],
-  "role": "default",
+  "role": "general",
   "tag_score": 0.8,
   "capture_interval": 0,
   "max_frames": 3,
@@ -474,7 +474,7 @@ backend | false | all | Select the backend you want to enable. By default all ba
 backend[] | false | all | Allows you to pass multiple backends at the same time. That way you can just enable openai and googlevision if you want.
 feature | false | all | Select features you want to enable. By default all features are enabled. Valid values are: brands, colors, descriptions, faces, nsfw, tags, and texts.
 feature[] | false | all | Allows you to pass multiple features at the same time. That way you can just scan tags and faces if you want.
-role | false | default | Pick the role, or persona for your description. This allows for more customized descriptions! Valid values are: artist, critic, default, ecommerce, inspector, promoter, realtor, and tweet.
+role | false | general | Pick the role, or persona for your description. This allows for more customized descriptions! Valid values are: artist, critic, general, ecommerce, inspector, promoter, realtor, and tweet.
 tag_score | false | 0.9 | Minimum tag score for the results. Valid values are floats between 0 and 1.
 capture_interval | false | 1 | By default videos process every frame. This allows you to set the capture interval. Valid values are integers greater than 0.
 max_frames | false | 3 | By default videos process every frame. This allows you to set the max number of frames to process. To remove the limit, set this value to 0.
@@ -483,7 +483,7 @@ You can also POST to the `/api/fetch` endpoint with JSON. Here is a sample paylo
 
 `{
   "feature": ["nsfw", "tags", "descriptions"],
-  "role": "default",
+  "role": "general",
   "url": [
     "https://example.com/info.png",
     "https://example.com/second.png"
@@ -514,7 +514,7 @@ curl "https://api.visionati.com/api/response/267f99ce-c797-4855-807f-21b204edb7e
   "file_names": [],
   "features": [],
   "backends": [],
-  "role": "default",
+  "role": "general",
   "tag_score": 0.8,
   "capture_interval": 0,
   "max_frames": 3,
@@ -533,7 +533,7 @@ curl "https://api.visionati.com/api/response/267f99ce-c797-4855-807f-21b204edb7e
   "file_names": [],
   "features": [],
   "backends": [],
-  "role": "default",
+  "role": "general",
   "tag_score": 0.8,
   "capture_interval": 0,
   "max_frames": 3,
