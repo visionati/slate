@@ -18,9 +18,9 @@ search: true
 
 Welcome to the Visionati API! You can use our API to analyze images and videos. You can fetch a variety of data including tags, descriptions, faces, brands, colors, and text. You can even scan YouTube and Vimeo videos!
 
-The API runs on credits. Each image or frame of video requires 1-4 credits depending on the features and backends you request, that way simple queries are less expensive. You can easily buy additional credits at our [API server](https://api.visionati.com).
+The API runs on credits. Each image or frame of video requires 1-6 credits depending on the features and backends you request, that way simple queries are less expensive. You can easily buy additional credits at our [API server](https://api.visionati.com).
 
-For simple requests, for instance tags and nsfw, it would cost 1 credit. However, if you wanted every feature and backend activated, it would cost 4 credits.
+For simple requests, for instance tags and nsfw, it would cost 1 credit. However, if you wanted every feature and backend activated, it would cost 6 credits.
 
 # Authentication
 
