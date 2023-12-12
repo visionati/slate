@@ -475,6 +475,7 @@ backend[] | false | all | Allows you to pass multiple backends at the same time.
 feature | false | all | Select features you want to enable. By default all features are enabled. Valid values are: brands, colors, descriptions, faces, nsfw, tags, and texts.
 feature[] | false | all | Allows you to pass multiple features at the same time. That way you can just scan tags and faces if you want.
 role | false | general | Pick the role, or persona for your description. This allows for more customized descriptions! Valid values are: artist, caption, comedian, critic, general, ecommerce, inspector, promoter, realtor, and tweet.
+prompt | false | none | Text prompt to use when generating a description. Takes priority over role.
 tag_score | false | 0.9 | Minimum tag score for the results. Valid values are floats between 0 and 1.
 capture_interval | false | 1 | By default videos process every frame. This allows you to set the capture interval. Valid values are integers greater than 0.
 max_frames | false | 3 | By default videos process every frame. This allows you to set the max number of frames to process. To remove the limit, set this value to 0.
