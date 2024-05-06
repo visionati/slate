@@ -470,8 +470,8 @@ file | false | none | Base64 value of the image/video file contents. Returns an 
 file[] | false | none | Base64 value for each image/video file. This param should be passed multiple times. Returns an async response.
 file_name | false | none | Uploaded file name.
 file_name[] | false | none | Uploaded file names. This param should be passed multiple times.
-backend | false | all | Select the backend you want to enable. Valid values are: clarifai, imagga, googlevision, rekognition, llava, bakllava, jinaai, gemini, claude and openai. By default clarifai, imagga, googlevision, rekognition, jinaai, gemini, claude and openai are enabled. Note, the response time could be lengthy if you have all backends enabled.
-backend[] | false | all | Allows you to pass multiple backends at the same time. That way you can just enable openai and googlevision if you want.
+backend | false | all | Select a single backend you want to enable. Valid values are: clarifai, imagga, googlevision, rekognition, llava, bakllava, jinaai, gemini, claude and openai. By default clarifai, imagga, googlevision, rekognition, jinaai, gemini, claude and openai are all enabled.
+backend[] | false | all | Allows you to pass multiple backends at the same time. That way you can just enable openai and googlevision if you want. Note, the response time could be lengthy if you have all backends enabled.
 feature | false | all | Select features you want to enable. By default all features are enabled. Valid values are: brands, colors, descriptions, faces, nsfw, tags, and texts.
 feature[] | false | all | Allows you to pass multiple features at the same time. That way you can just scan tags and faces if you want.
 role | false | general | Pick the role, or persona for your description. This allows for more customized descriptions! Valid values are: artist, caption, comedian, critic, general, ecommerce, inspector, promoter, prompt, realtor, and tweet.
