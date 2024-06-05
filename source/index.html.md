@@ -29,7 +29,7 @@ For simple requests, for instance tags and nsfw, it would cost 1 credit. However
 ```shell
 # You need to pass the correct header with each request.
 curl "<API_ENDPOINT>"
-  -H "Authorization: Token <YOUR_API_KEY>"
+  -H "X-API-Key: Token <YOUR_API_KEY>"
 ```
 
 > Make sure to replace `<YOUR_API_KEY>` with your API key.
@@ -37,6 +37,10 @@ curl "<API_ENDPOINT>"
 Visionati uses API keys to allow access to the API. You can register an account at our [API server](https://api.visionati.com).
 
 Visionati expects for the API key to be included in all API requests to the server in a header that looks like the following:
+
+`X-API-Key: Token <YOUR_API_KEY>`
+
+Older apps may be using the `Authorization` header. This is now deprecated to improve compatibility with CORS.
 
 `Authorization: Token <YOUR_API_KEY>`
 
@@ -51,7 +55,7 @@ You must replace <code>&lt;YOUR_API_KEY&gt;</code> with your API key.
 ```shell
 # Sample call to analyze an image.
 curl "https://api.visionati.com/api/fetch?url=https%3A%2F%2Fthoughts.greyh.at%2Fposts%2Fbreathe%2Fimages%2Fcover.webp"
-  -H "Authorization: Token <YOUR_API_KEY>"
+  -H "X-API-Key: Token <YOUR_API_KEY>"
 ```
 
 > The command above returns the following JSON. The second response below is returned if you request multiple images/videos.
@@ -501,7 +505,7 @@ Remember - anytime you see a param that ends in [], you can use it multiple time
 
 ```shell
 curl "https://api.visionati.com/api/response/267f99ce-c797-4855-807f-21b204edb7ed"
-  -H "Authorization: Token <YOUR_API_KEY>"
+  -H "X-API-Key: Token <YOUR_API_KEY>"
 ```
 
 > The command above returns the following JSON as it is processing. The second response below is returned if processing is complete.
