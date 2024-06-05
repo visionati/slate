@@ -259,7 +259,7 @@
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You need to pass the correct header with each request.</span>
 curl <span class="s2">"&lt;API_ENDPOINT&gt;"</span>
-  -H <span class="s2">"Authorization: Token &lt;YOUR_API_KEY&gt;"</span>
+  -H <span class="s2">"X-API-Key: Token &lt;YOUR_API_KEY&gt;"</span>
 </code></pre>
 <blockquote>
 <p>Make sure to replace <code>&lt;YOUR_API_KEY&gt;</code> with your API key.</p>
@@ -269,6 +269,10 @@ curl <span class="s2">"&lt;API_ENDPOINT&gt;"</span>
 
 <p>Visionati expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
 
+<p><code>X-API-Key: Token &lt;YOUR_API_KEY&gt;</code></p>
+
+<p>Older apps may be using the <code>Authorization</code> header. This is now deprecated to improve compatibility with CORS.</p>
+
 <p><code>Authorization: Token &lt;YOUR_API_KEY&gt;</code></p>
 
 <aside class="notice">
@@ -276,7 +280,7 @@ You must replace <code>&lt;YOUR_API_KEY&gt;</code> with your API key.
 </aside>
 <h1 id='visionati'>Visionati</h1><h2 id='analyze-an-image-video'>Analyze an Image/Video</h2><pre class="highlight shell tab-shell"><code><span class="c"># Sample call to analyze an image.</span>
 curl <span class="s2">"https://api.visionati.com/api/fetch?url=https%3A%2F%2Fthoughts.greyh.at%2Fposts%2Fbreathe%2Fimages%2Fcover.webp"</span>
-  -H <span class="s2">"Authorization: Token &lt;YOUR_API_KEY&gt;"</span>
+  -H <span class="s2">"X-API-Key: Token &lt;YOUR_API_KEY&gt;"</span>
 </code></pre>
 <blockquote>
 <p>The command above returns the following JSON. The second response below is returned if you request multiple images/videos.</p>
@@ -797,7 +801,7 @@ curl <span class="s2">"https://api.visionati.com/api/fetch?url=https%3A%2F%2Ftho
 Remember - anytime you see a param that ends in [], you can use it multiple times!
 </aside>
 <h2 id='async-response'>Async Response</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.visionati.com/api/response/267f99ce-c797-4855-807f-21b204edb7ed"</span>
-  -H <span class="s2">"Authorization: Token &lt;YOUR_API_KEY&gt;"</span>
+  -H <span class="s2">"X-API-Key: Token &lt;YOUR_API_KEY&gt;"</span>
 </code></pre>
 <blockquote>
 <p>The command above returns the following JSON as it is processing. The second response below is returned if processing is complete.</p>
