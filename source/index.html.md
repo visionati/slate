@@ -481,7 +481,7 @@ feature[] | false | all | Allows you to pass multiple features at the same time.
 role | false | general | Pick the role, or persona for your description. This allows for more customized descriptions! Valid values are: artist, caption, comedian, critic, general, ecommerce, inspector, promoter, prompt, realtor, and tweet.
 prompt | false | none | Text prompt to use when generating a description. Takes priority over role.
 tag_score | false | 0.9 | Minimum tag score for the results. Valid values are floats between 0 and 1.
-capture_interval | false | 1 | By default videos process every frame. This allows you to set the capture interval. Valid values are integers greater than 0.
+capture_interval | false | 1 | The time in seconds between video image captures. By default videos process every second. Valid values are integers greater than 0.
 max_frames | false | 3 | By default videos process every frame. This allows you to set the max number of frames to process. To remove the limit, set this value to 0.
 
 You can also POST to the `/api/fetch` endpoint with JSON. Here is a sample payload:
