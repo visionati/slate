@@ -18,13 +18,13 @@ search: true
 
 ## Introduction
 
-The [Visionati Content Analyzer](https://api.visionati.com/analyze) is a convenient app that quickly generates detailed descriptions, captions, and tags for your images using multiple AI services. It can also check if content is NSFW, ensuring safe and appropriate image usage. Designed for efficiency and accuracy, Visionati transforms your image management process with advanced AI capabilities. The app works seamlessly on both mobile and desktop, integrating effortlessly with your phone camera for a smooth user experience.
+The [Visionati Content Analyzer](https://api.visionati.com/analyze) is a convenient app that quickly generates detailed descriptions, captions, and tags for your images and videos using multiple AI services. It can also check if content is NSFW, ensuring safe and appropriate usage. Designed for efficiency and accuracy, Visionati transforms your content management process with advanced AI capabilities. The app works seamlessly on both mobile and desktop, integrating effortlessly with your phone camera for a smooth user experience.
 
 ![Visionati Content Analyzer](https://visionati.com/_assets/img/analyze.webp)
 
 ## Roles
 
-Visionati's Content Analyzer offers flexible role-based functionality, allowing you to choose from predefined roles or create your own prompts to tailor image analysis. The default roles include:
+Visionati's Content Analyzer offers flexible role-based functionality, allowing you to choose from predefined roles or create your own prompts to tailor content analysis. The default roles include:
 
 - Artist: Provides an artistic take on the image.
 - Caption: Generates a short, concise caption.
