@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Documentation</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -219,24 +219,35 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
-          </li>
-          <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#visionati" class="toc-h1 toc-link" data-title="Visionati">Visionati</a>
+            <a href="#visionati-content-analyzer" class="toc-h1 toc-link" data-title="Visionati Content Analyzer">Visionati Content Analyzer</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#introduction" class="toc-h2 toc-link" data-title="Introduction">Introduction</a>
+                  </li>
+                  <li>
+                    <a href="#roles" class="toc-h2 toc-link" data-title="Roles">Roles</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#visionati-api" class="toc-h1 toc-link" data-title="Visionati API">Visionati API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#introduction-2" class="toc-h2 toc-link" data-title="Introduction">Introduction</a>
+                  </li>
+                  <li>
+                    <a href="#authentication" class="toc-h2 toc-link" data-title="Authentication">Authentication</a>
+                  </li>
                   <li>
                     <a href="#analyze-an-image-video" class="toc-h2 toc-link" data-title="Analyze an Image/Video">Analyze an Image/Video</a>
                   </li>
                   <li>
                     <a href="#async-response" class="toc-h2 toc-link" data-title="Async Response">Async Response</a>
                   </li>
+                  <li>
+                    <a href="#errors" class="toc-h2 toc-link" data-title="Errors">Errors</a>
+                  </li>
               </ul>
-          </li>
-          <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
         <ul class="toc-footer">
@@ -247,13 +258,33 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Visionati API! You can use our API to analyze images and videos. You can fetch a variety of data including tags, descriptions, faces, brands, colors, and text. You can even scan YouTube and Vimeo videos!</p>
+        <h1 id='visionati-content-analyzer'>Visionati Content Analyzer</h1><h2 id='introduction'>Introduction</h2>
+<p>The <a href="https://api.visionati.com/analyze">Visionati Content Analyzer</a> is a convenient app which works seamlessly on both mobile and desktop, and integrates effortlessly with your phone camera. Utilizing multiple AI services, it quickly generates detailed descriptions, captions, and tags for your images. Additionally, it can check if content is NSFW, ensuring safe and appropriate image usage. Designed for efficiency and accuracy, Visionati transforms your image management process with advanced AI capabilities.</p>
+<h2 id='roles'>Roles</h2>
+<p>Visionati&#39;s Content Analyzer offers flexible role-based functionality, allowing you to choose from predefined roles or create your own prompts to tailor image analysis. The default roles include:</p>
+
+<ul>
+<li>Artist: Provides an artistic take on the image.</li>
+<li>Caption: Generates a short, concise caption.</li>
+<li>Comedian: Delivers a humorous description.</li>
+<li>Critic: Offers a detailed critical analysis.</li>
+<li>General: The default role for general descriptions.</li>
+<li>Ecommerce: Creates product descriptions for online stores.</li>
+<li>Inspector: Provides the most detailed, thorough inspection.</li>
+<li>Promoter: Helps event promoters market the contents of an image.</li>
+<li>Prompt: Generates prompts to recreate the image in services like Midjourney.</li>
+<li>Realtor: Produces real estate descriptions.</li>
+<li>Tweet: Crafts a tweet about the image.</li>
+</ul>
+
+<p>These roles enable precise and context-specific image interpretations, enhancing the usability of Visionati for various applications.</p>
+<h1 id='visionati-api'>Visionati API</h1><h2 id='introduction-2'>Introduction</h2>
+<p>The Visionati API is used to analyze images and videos. You can fetch a variety of data including tags, descriptions, faces, brands, colors, and text. You can even scan YouTube, Vimeo and X videos!</p>
 
 <p>The API runs on credits. Each image or frame of video requires 1-6 credits depending on the features and backends you request, that way simple queries are less expensive. You can easily buy additional credits at our <a href="https://api.visionati.com">API server</a>.</p>
 
 <p>For simple requests, for instance tags and nsfw, it would cost 1 credit. However, if you wanted every feature and backend activated, it would cost 6 credits.</p>
-<h1 id='authentication'>Authentication</h1>
+<h2 id='authentication'>Authentication</h2>
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
@@ -278,7 +309,7 @@ curl <span class="s2">"&lt;API_ENDPOINT&gt;"</span>
 <aside class="notice">
 You must replace <code>&lt;YOUR_API_KEY&gt;</code> with your API key.
 </aside>
-<h1 id='visionati'>Visionati</h1><h2 id='analyze-an-image-video'>Analyze an Image/Video</h2><pre class="highlight shell tab-shell"><code><span class="c"># Sample call to analyze an image.</span>
+<h2 id='analyze-an-image-video'>Analyze an Image/Video</h2><pre class="highlight shell tab-shell"><code><span class="c"># Sample call to analyze an image.</span>
 curl <span class="s2">"https://api.visionati.com/api/fetch?url=https%3A%2F%2Fthoughts.greyh.at%2Fposts%2Fbreathe%2Fimages%2Fcover.webp"</span>
   -H <span class="s2">"X-API-Key: Token &lt;YOUR_API_KEY&gt;"</span>
 </code></pre>
@@ -1371,7 +1402,7 @@ Remember - anytime you see a param that ends in [], you can use it multiple time
 <p><code>GET https://api.visionati.com/api/response/&lt;request_id&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <p>This endpoint takes no parameters.</p>
-<h1 id='errors'>Errors</h1>
+<h2 id='errors'>Errors</h2>
 <blockquote>
 <p>Below is a sample error message.</p>
 </blockquote>
