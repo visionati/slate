@@ -40,6 +40,16 @@ Visionati's Content Analyzer offers flexible role-based functionality, allowing 
 
 These roles enable precise and context-specific image interpretations, enhancing the usability of Visionati for various applications.
 
+## Usage
+
+Using the Visionati Content Analyzer is straightforward and efficient. Follow these steps:
+
+1. **Upload Image or Video**: Open the app and upload your image or video using the file upload option, enter a URL, or take a new photo or video with your phone camera.
+2. **Select Role**: Choose a predefined role from the dropdown menu or input your own custom prompt for tailored analysis.
+3. **Analyze**: Click the 'Submit' button to process the content. The app will generate detailed descriptions, captions, and tags based on your selected role.
+4. **Review Results**: Review the generated content and check for NSFW warnings.
+5. **Copy or Share**: Copy the analyzed content to the clipboard or share it directly on X (formerly Twitter).
+
 # Visionati API
 
 ## Introduction
