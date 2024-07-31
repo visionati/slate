@@ -16,11 +16,11 @@ search: true
 
 # Visionati Content Analyzer
 
-![Visionati Content Analyzer](https://visionati.com/_assets/img/analyze.webp)
-
 ## Introduction
 
 The [Visionati Content Analyzer](https://api.visionati.com/analyze) is a convenient app which works seamlessly on both mobile and desktop, and integrates effortlessly with your phone camera. Utilizing multiple AI services, it quickly generates detailed descriptions, captions, and tags for your images. Additionally, it can check if content is NSFW, ensuring safe and appropriate image usage. Designed for efficiency and accuracy, Visionati transforms your image management process with advanced AI capabilities.
+
+![Visionati Content Analyzer](https://visionati.com/_assets/img/analyze.webp)
 
 ## Roles
 
