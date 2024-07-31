@@ -1,4 +1,4 @@
-# Errors
+## Errors
 
 > Below is a sample error message.
 

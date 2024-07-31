@@ -1,5 +1,5 @@
 ---
-title: API Reference
+title: Documentation
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
@@ -14,15 +14,41 @@ includes:
 search: true
 ---
 
-# Introduction
+# Visionati Content Analyzer
 
-Welcome to the Visionati API! You can use our API to analyze images and videos. You can fetch a variety of data including tags, descriptions, faces, brands, colors, and text. You can even scan YouTube and Vimeo videos!
+## Introduction
+
+The [Visionati Content Analyzer](https://api.visionati.com/analyze) is a convenient app which works seamlessly on both mobile and desktop, and integrates effortlessly with your phone camera. Utilizing multiple AI services, it quickly generates detailed descriptions, captions, and tags for your images. Additionally, it can check if content is NSFW, ensuring safe and appropriate image usage. Designed for efficiency and accuracy, Visionati transforms your image management process with advanced AI capabilities.
+
+## Roles
+
+Visionati's Content Analyzer offers flexible role-based functionality, allowing you to choose from predefined roles or create your own prompts to tailor image analysis. The default roles include:
+
+- Artist: Provides an artistic take on the image.
+- Caption: Generates a short, concise caption.
+- Comedian: Delivers a humorous description.
+- Critic: Offers a detailed critical analysis.
+- General: The default role for general descriptions.
+- Ecommerce: Creates product descriptions for online stores.
+- Inspector: Provides the most detailed, thorough inspection.
+- Promoter: Helps event promoters market the contents of an image.
+- Prompt: Generates prompts to recreate the image in services like Midjourney.
+- Realtor: Produces real estate descriptions.
+- Tweet: Crafts a tweet about the image.
+
+These roles enable precise and context-specific image interpretations, enhancing the usability of Visionati for various applications.
+
+# Visionati API
+
+## Introduction
+
+The Visionati API is used to analyze images and videos. You can fetch a variety of data including tags, descriptions, faces, brands, colors, and text. You can even scan YouTube, Vimeo and X videos!
 
 The API runs on credits. Each image or frame of video requires 1-6 credits depending on the features and backends you request, that way simple queries are less expensive. You can easily buy additional credits at our [API server](https://api.visionati.com).
 
 For simple requests, for instance tags and nsfw, it would cost 1 credit. However, if you wanted every feature and backend activated, it would cost 6 credits.
 
-# Authentication
+## Authentication
 
 > To authorize, use this code:
 
@@ -47,8 +73,6 @@ Older apps may be using the `Authorization` header. This is now deprecated to im
 <aside class="notice">
 You must replace <code>&lt;YOUR_API_KEY&gt;</code> with your API key.
 </aside>
-
-# Visionati
 
 ## Analyze an Image/Video
 
