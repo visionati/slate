@@ -22,6 +22,25 @@ The [Visionati Content Analyzer](https://api.visionati.com/analyze) is a conveni
 
 ![Visionati Content Analyzer](https://visionati.com/_assets/img/analyze.webp)
 
+## AI Backends
+
+You can select the exact AI services you want to use to analyze your images and videos by visiting your profile edit page!
+
+This will allow you to pick and choose from a variety of AI services, including:
+
+- [BakLLaVa](https://replicate.com/lucataco/bakllava)
+- [Claude*](https://claude.ai/)
+- [Gemini*](https://gemini.google.com/)
+- [Jina AI](https://jina.ai/)
+- [LLaVA](https://replicate.com/yorickvp/llava-13b)
+- [OpenAI*](https://openai.com/)
+- [Clarifai*](https://www.clarifai.com/)
+- [Google Vision*](https://cloud.google.com/vision)
+- [Imagga](https://imagga.com/)
+- [Rekognition*](https://aws.amazon.com/rekognition/)
+
+\* Recommended services which provide the best results with the fastest response times.
+
 ## Roles
 
 Visionati's Content Analyzer offers flexible role-based functionality, allowing you to choose from predefined roles or create your own prompts to tailor content analysis. The default roles include:
