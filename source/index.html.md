@@ -525,8 +525,8 @@ Parameter | Required | Default | Description
 --------- | -------- | ------- | -----------
 url | false | none | URL to the image/video you wish to scan. Videos return an async response.
 url[] | false | none | URLs to the images/videos you wish to analyze. This param should be passed multiple times. Returns an async response.
-file | false | none | Base64 value of the image/video file contents. Returns an async response.
-file[] | false | none | Base64 value for each image/video file. This param should be passed multiple times. Returns an async response.
+file | false | none | Base64 value or Data URI of the image/video file. Returns an async response.
+file[] | false | none | Base64 value or Data URI for each image/video file. This param should be passed multiple times. Returns an async response.
 file_name | false | none | Uploaded file name.
 file_name[] | false | none | Uploaded file names. This param should be passed multiple times.
 backend | false | all | Select a single backend you want to enable. Valid values are: clarifai, imagga, googlevision, rekognition, llava, bakllava, jinaai, gemini, claude and openai. By default clarifai, imagga, googlevision, rekognition, gemini, claude and openai are all enabled.
